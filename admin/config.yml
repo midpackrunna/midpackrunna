@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "parkruns"
+    label: "Parkruns"
+    files:
+      - name: "thisweek"
+        label: "This Week"
+        file: "content/parkruns/this-week.json"
+        fields:
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Date", name: "date", widget: "string" }
+          - { label: "Time", name: "time", widget: "string" }
+          - { label: "Position", name: "position", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Notes", name: "notes", widget: "text" }

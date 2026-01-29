@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parkruns – Midpack Runna</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Parkruns</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="races.html">Races</a>
+  </nav>
+</header>
+
+<section id="parkrun-content">
+  <p>Loading latest parkrun…</p>
+</section>
+
+<script>
+fetch('/content/parkruns/this-week.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('parkrun-content').innerHTML = `
+      <h2>${data.location}</h2>
+      <p><strong>Date:</strong> ${data.date}</p>
+      <p><strong>Time:</strong> ${data.time}</p>
+      <p><strong>Position:</strong> ${data.position}</p>
+      <img src="${data.image}" style="max-width:100%; margin-top:20px;">
+      <p>${data.notes}</p>
+    `;
+  });
+</script>
+
+<footer>
+  © 2026 Midpack Runna
+</footer>
+
+</body>
+</html>
